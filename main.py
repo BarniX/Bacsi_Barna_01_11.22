@@ -34,5 +34,9 @@ while választás != '0':
             botlap = botlerakas()
             if botlap != None:
                 elozolap = botlap
+        if len(lapjaid) == 0:
+            print("\nGratulálok, te nyertél!!!!!!!!!!!!!!!!")
+        else:
+            print("\nSajnáljuk, de vesztettél. :(")
     elif választás == '5':
         pass
