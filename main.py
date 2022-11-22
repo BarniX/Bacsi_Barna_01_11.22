@@ -1,42 +1,51 @@
 from os import system
 from functions import *
 
+kezdolapok = 8
+lapjaid = []
+ellenfellapjai = []
+elozolap = ""
+valasztas = ''
 
-választás = ''
-
-while választás != '0':
-    választás=menu()
-    if választás == '1':
+while valasztas != '0':
+    valasztas=menu()
+    if valasztas == '1':
         pass
-    elif választás == '2':
+    elif valasztas == '2':
         pass
-    elif választás == '3':
+    elif valasztas == '3':
         pass
-    elif választás == '4':
+    elif valasztas == '4':
+        pass
+    elif valasztas == '5':
+        system('cls')
+        lapjaid = kez(kezdolapok)
+        ellenfellapjai = kez(kezdolapok)
         while len(lapjaid) != 0 and len(ellenfellapjai) != 0:
+            #system('cls')
             print("Előző lap: ",elozolap)
             print("Lapjaid: "," ".join(lapjaid))
-            #print("Lapjai: "," ".join(ellenfellapjai))
-            if tudoklerakni():
+            print("Lapjai: "," ".join(ellenfellapjai))
+            if tudoklerakni(lapjaid, elozolap):
                 lap = str(input("Adj meg egy lapot, amit le akarsz rakni: ").upper())
                 if lap in lapjaid:
                     lapjaid.remove(lap)
                     elozolap = lap
                 else:
                     print("Nincs ilyen lapod, vagy nem tudsz ilyet lerakni!")
-                    while lap in lapjaid:
+                    while not lap in lapjaid:
                         lap = str(input("Adj meg egy lapot, amit le akarsz rakni: ").upper())
                         if lap in lapjaid:
                             lapjaid.remove(lap)
                             elozolap = lap
                         else:
                             print("Nincs ilyen lapod, vagy nem tudsz ilyet lerakni!")
-            botlap = botlerakas()
+            else:
+                print("Kaptál egy lapot, mert nem tudtál mit lerakni!")
+            botlap = botlerakas(ellenfellapjai, elozolap)
             if botlap != None:
                 elozolap = botlap
         if len(lapjaid) == 0:
             print("\nGratulálok, te nyertél!!!!!!!!!!!!!!!!")
         else:
             print("\nSajnáljuk, de vesztettél. :(")
-    elif választás == '5':
-        pass
