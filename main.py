@@ -1,4 +1,4 @@
-from system import os
+from os import system
 from functions import *
 
 
