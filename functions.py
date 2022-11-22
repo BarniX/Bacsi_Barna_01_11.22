@@ -8,4 +8,4 @@ def menu():
     print('3 - Játék elindítása (szabályos játékmenet')
     print('4 - Játék elindítása (végtelen számú lapokkal')
     print('5 - Játék elindítása (csak számos lapokkal')
-
+    return input('Válassz egy menüpontot: ')
