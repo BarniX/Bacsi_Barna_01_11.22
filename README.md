@@ -15,6 +15,9 @@ Menü kinézete:
     5. - Játék elindítása (csak számos lapokkal) 
 
 2. Lapok generálásának elkészítése és lapok kiosztása kezdéskor (kiválasztható a kezdőlapok száma).
+
 3. Játék elindításakor kiírja a saját paklidat és az előző letett lapot (kivéve ha az első körben vagy) és bekér egy lapot a és ha az benne van a paklidban és  le tudod rakni, akkor azt kitörli a paklidból és lerakja. Eztuán a gép is lerak egy lapot az ő paklijából, amit neked nem ír ki, de azt is menti a rendszer (a gép mindig végigmegy a saját lapjain és a legelsőt amit le tud rakni le is rakja).
+
 4. Ha te vagy a gép nem tud éppen lerakni egyetlen egy lapot sem akkor felhúz a pakliból egy lapot.
+
 5. A játék addig megy amíg valakinek el nem fogynak a lapjai.
