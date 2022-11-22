@@ -17,7 +17,7 @@ def menu():
     return input('Válassz egy menüpontot: ')
 
 def lap_generalas():
-    szam = str(random.randint(0,9))s
+    szam = str(random.randint(0,9))
     szin = random.randint(1,4)
     if szin == 1:
         return "P" + szam
@@ -27,3 +27,8 @@ def lap_generalas():
         return "S" + szam
     elif szin == 4:
         return "K" + szam
+
+def kez():
+    for lap in range(kezdolapok):
+        lapjaid.append(lap_generalas())
+        ellenfellapjai.append(lap_generalas())
