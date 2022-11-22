@@ -42,3 +42,14 @@ def botlerakas():
         ellenfellapjai.append(lap_generalas())
         print("Az ellenfél lapot húzott")
         return None
+
+def tudoklerakni():
+    for lap in lapjaid:
+        if elozolap == "":
+            return True
+        elif lap[0] == elozolap[0] or lap[1] == elozolap[1]:
+            return True
+    else:
+        lapjaid.append(lap_generalas())
+        print("Kaptál egy lapot, mert nem tudtál mit lerakni!")
+        return False
