@@ -32,3 +32,13 @@ def kez():
     for lap in range(kezdolapok):
         lapjaid.append(lap_generalas())
         ellenfellapjai.append(lap_generalas())
+
+def botlerakas():
+    for lap in ellenfellapjai:
+        if lap[0] == elozolap[0] or lap[1] == elozolap[1]:
+            ellenfellapjai.remove(lap)
+            return lap
+    else:
+        ellenfellapjai.append(lap_generalas())
+        print("Az ellenfél lapot húzott")
+        return None
