@@ -16,7 +16,37 @@ while valasztas != '0':
     elif valasztas == '3':
         pass
     elif valasztas == '4':
-        pass
+        system('cls')
+        lapjaid = kez_feketevel(kezdolapok)
+        ellenfellapjai = kez_feketevel(kezdolapok)
+        while len(lapjaid) != 0 and len(ellenfellapjai) != 0:
+            #system('cls')
+            print("Előző lap: ",elozolap)
+            print("Lapjaid: "," ".join(lapjaid))
+            print("Lapjai: "," ".join(ellenfellapjai))
+            if tudoklerakni_feketevel(lapjaid, elozolap):
+                lap = str(input("Adj meg egy lapot, amit le akarsz rakni: ").upper())
+                if lap in lapjaid:
+                    lapjaid.remove(lap)
+                    elozolap = lap
+                else:
+                    print("Nincs ilyen lapod, vagy nem tudsz ilyet lerakni!")
+                    while not lap in lapjaid:
+                        lap = str(input("Adj meg egy lapot, amit le akarsz rakni: ").upper())
+                        if lap in lapjaid:
+                            lapjaid.remove(lap)
+                            elozolap = lap
+                        else:
+                            print("Nincs ilyen lapod, vagy nem tudsz ilyet lerakni!")
+            else:
+                print("Kaptál egy lapot, mert nem tudtál mit lerakni!")
+            botlap = botlerakas_feketevel(ellenfellapjai, elozolap)
+            if botlap != None:
+                elozolap = botlap
+        if len(lapjaid) == 0:
+            print("\nGratulálok, te nyertél!!!!!!!!!!!!!!!!")
+        else:
+            print("\nSajnáljuk, de vesztettél. :(")
     elif valasztas == '5':
         system('cls')
         lapjaid = kez(kezdolapok)
@@ -25,7 +55,7 @@ while valasztas != '0':
             #system('cls')
             print("Előző lap: ",elozolap)
             print("Lapjaid: "," ".join(lapjaid))
-            print("Lapjai: "," ".join(ellenfellapjai))
+            #print("Lapjai: "," ".join(ellenfellapjai))
             if tudoklerakni(lapjaid, elozolap):
                 lap = str(input("Adj meg egy lapot, amit le akarsz rakni: ").upper())
                 if lap in lapjaid:
