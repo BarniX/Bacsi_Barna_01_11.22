@@ -29,6 +29,9 @@ while valasztas != '0':
                 if lap in lapjaid:
                     lapjaid.remove(lap)
                     elozolap = lap
+                elif lap in lapjaid and lap == "F+4":
+                    
+                    pass
                 else:
                     print("Nincs ilyen lapod, vagy nem tudsz ilyet lerakni!")
                     while not lap in lapjaid:
@@ -76,6 +79,6 @@ while valasztas != '0':
             if botlap != None:
                 elozolap = botlap
         if len(lapjaid) == 0:
-            print("\nGratulálok, te nyertél!!!!!!!!!!!!!!!!")
+            print("\nGratulálok, te nyertél! :D")
         else:
             print("\nSajnáljuk, de vesztettél. :(")
