@@ -11,6 +11,19 @@ def menu():
     print('5 - Játék elindítása (fekete lapok nélkül)')
     return input('Válassz egy menüpontot: ')
 
+def utmutato_menu():
+    system('cls')
+    print('0 - Kilépés a főmenübe')
+    print('1 - Lapmagyarázat')
+    print('2 - Játékmenet szabályai')
+    print('3 - Kezdés információk')
+    return input('Válassz ki egy útmutatót: ')
+
+def lapkiiras(pakli, pakli_f):
+    print('Lapok az első fajta pakliban: ',' '.join(pakli))
+    print('Lapok a második fajta pakliban: ',' '.join(pakli_f))
+    input('Továbblépés billentyűlenyomással...')
+
 def lap_generalas():
     szam = str(random.randint(0,9))
     szin = random.randint(1,4)
