@@ -17,12 +17,13 @@ def utmutato_menu():
     print('1 - Lapmagyarázat')
     print('2 - Játékmenet szabályai')
     print('3 - Kezdés információk')
-    return input('Válassz ki egy útmutatót: ')
+    return input('Válassz ki egy menürészt vagy lépj vissza a főmenübe (0): ')
 
-def lapkiiras(pakli, pakli_f):
-    print('Lapok az első fajta pakliban: ',' '.join(pakli))
-    print('Lapok a második fajta pakliban: ',' '.join(pakli_f))
+def lapkiiras(pakli):
+    print('Lapok a pakliban: ',' '.join(pakli))
     input('Továbblépés billentyűlenyomással...')
+
+
 
 def lap_generalas():
     szam = str(random.randint(0,9))
@@ -53,20 +54,14 @@ def botlerakas(ellenfellapjai, elozolap):
         return None
 
 def tudoklerakni(lapjaid, elozolap):
-    huzzfel2 = []
     for lap in lapjaid:
         if elozolap == "":
             return True
         elif lap[0] == elozolap[0] or lap[1] == elozolap[1]:
             return True
-        elif lap  == 'F+4':
-            return True
-
     else:
         lapjaid.append(lap_generalas())
         return False
-
-
 
 
 
@@ -82,7 +77,7 @@ def lap_generalas_feketevel():
     elif szin == 10 or szin == 11 or szin == 12:
         return "K" + szam
     elif szin == 13:
-        return "F" + "+4"
+        return "F+4"
 
 def kez_feketevel(kezdolapok):
     lapok = []
@@ -90,14 +85,20 @@ def kez_feketevel(kezdolapok):
         lapok.append(lap_generalas_feketevel())
     return lapok
 
-def botlerakas_feketevel(ellenfellapjai, elozolap):
-    huzzfel = []
+def botlerakas_feketevel(ellenfellapjai, elozolap, bothuzott, lapjaid):
+    global huztal
     for lap in ellenfellapjai:
-        if lap[0] == elozolap[0] or lap[1] == elozolap[1] or lap[0] == "F":
+        if bothuzott != 'igen' and lap != "F+4" and lap[0] == elozolap[0] or lap[1] == elozolap[1]:
             ellenfellapjai.remove(lap)
             return lap
-        elif lap == 'F+4':
+        elif bothuzott != 'igen' and lap == 'F+4':
+            lapjaid.append(lap_generalas_feketevel())
+            lapjaid.append(lap_generalas_feketevel())
+            lapjaid.append(lap_generalas_feketevel())
+            lapjaid.append(lap_generalas_feketevel())
             ellenfellapjai.remove(lap)
+            huztal = 'igen'
+            print('Húznod kellett négy lapot.')
             return lap
     else:
         ellenfellapjai.append(lap_generalas_feketevel())
@@ -108,8 +109,12 @@ def tudoklerakni_feketevel(lapjaid, elozolap):
     for lap in lapjaid:
         if elozolap == "":
             return True
-        elif lap[0] == elozolap[0] or lap[1] == elozolap[1] or lap[0] == "F":
+        elif elozolap == "F+4" or lap[0] == elozolap[0] or lap[1] == elozolap[1]:
             return True
     else:
         lapjaid.append(lap_generalas_feketevel())
         return False
+
+
+
+
