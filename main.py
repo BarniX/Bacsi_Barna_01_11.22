@@ -110,7 +110,7 @@ while valasztas != '0':
         while len(lapjaid) != 0 and len(ellenfellapjai) != 0:
             #system('cls')
             print("Legfelső lap: ",elozolap)
-            #print("Lapjaid: "," ".join(lapjaid))
+            print("Lapjaid: "," ".join(lapjaid))
             #print("Lapjai: "," ".join(ellenfellapjai))
             print(f'\tA te lapjaid száma: {len(lapjaid)}db \tEllenfeled lapjainak száma: {len(ellenfellapjai)}db')
             if tudoklerakni(lapjaid, elozolap):
